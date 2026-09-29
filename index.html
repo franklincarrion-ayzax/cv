@@ -9,10 +9,10 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0b0710; /* Morado muy oscuro / Negro amatista */
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0c0914;
             color: #e2e8f0;
         }
         .page-section {
@@ -20,153 +20,153 @@
         }
         .page-section.active {
             display: block;
-            animation: fadeIn 0.4s ease-in-out;
+            animation: fadeIn 0.3s ease-in-out;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .glow-border {
-            border: 1px solid rgba(168, 85, 247, 0.25);
-            box-shadow: 0 0 25px rgba(147, 51, 234, 0.08);
-        }
-        .glow-border:hover {
-            border-color: rgba(168, 85, 247, 0.5);
-            box-shadow: 0 0 30px rgba(147, 51, 234, 0.18);
+        .custom-card {
+            background: linear-gradient(135deg, rgba(26, 18, 43, 0.8) 0%, rgba(15, 10, 26, 0.9) 100%);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-purple-600 selection:text-white">
 
-    <!-- HEADER / NAVEGACIÓN PRINCIPAL -->
-    <header class="w-full border-b border-purple-950/60 bg-[#120c1f]/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-            <!-- LOGO / NOMBRE ABREVIADO -->
+    <!-- HEADER / NAVEGACIÓN LATERAL / SUPERIOR ESTILIZADA -->
+    <header class="w-full bg-[#120c1f]/90 backdrop-blur-md border-b border-purple-950 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex flex-col sm:flex-row items-center justify-between gap-4 py-2 sm:py-0">
+            <!-- LOGO / IDENTIFICADOR -->
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-800 to-indigo-600 flex items-center justify-center text-white font-bold tracking-wider shadow-lg shadow-purple-950/50 border border-purple-500/30">
-                    FC
+                <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-white shadow-lg shadow-purple-900/50">
+                    FS
                 </div>
-                <span class="text-xl font-bold tracking-tight text-white">FS.DEV</span>
+                <div>
+                    <h1 class="text-sm font-bold text-white tracking-wider">FRANKLIN CARRIÓN</h1>
+                    <p class="text-[10px] text-purple-400 font-mono tracking-widest uppercase">Infraestructura TI</p>
+                </div>
             </div>
 
-            <!-- BOTONES DE PESTAÑAS -->
-            <nav class="flex space-x-1 sm:space-x-3 bg-[#181128] p-1.5 rounded-2xl border border-purple-900/40">
-                <button onclick="switchTab('perfil')" id="btn-perfil" class="nav-btn px-3 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center space-x-2 bg-purple-700 text-white shadow-md shadow-purple-900/40">
-                    <i class="fa-solid fa-user"></i>
-                    <span class="hidden sm:inline">Perfil</span>
+            <!-- NAVEGACIÓN -->
+            <nav class="flex space-x-2 bg-[#181128] p-1.5 rounded-xl border border-purple-950">
+                <button onclick="switchTab('perfil')" id="btn-perfil" class="nav-btn px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 flex items-center space-x-2 bg-purple-600 text-white shadow">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <span>Perfil & Datos</span>
                 </button>
-                <button onclick="switchTab('experiencia')" id="btn-experiencia" class="nav-btn px-3 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center space-x-2 text-purple-300 hover:text-white hover:bg-purple-950/50">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <span class="hidden sm:inline">Experiencia</span>
+                <button onclick="switchTab('experiencia')" id="btn-experiencia" class="nav-btn px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 flex items-center space-x-2 text-purple-300 hover:text-white hover:bg-purple-950/50">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <span>Proyectos & Experiencia</span>
                 </button>
-                <button onclick="switchTab('capacitaciones')" id="btn-capacitaciones" class="nav-btn px-3 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center space-x-2 text-purple-300 hover:text-white hover:bg-purple-950/50">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span class="hidden sm:inline">Capacitaciones</span>
+                <button onclick="switchTab('capacitaciones')" id="btn-capacitaciones" class="nav-btn px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 flex items-center space-x-2 text-purple-300 hover:text-white hover:bg-purple-950/50">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Capacitaciones</span>
                 </button>
             </nav>
         </div>
     </header>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex-grow w-full">
+    <main class="max-w-7xl mx-auto px-6 py-10 flex-grow w-full">
 
-        <!-- ================= SECCIÓN 1: PERFIL ================= -->
-        <section id="sec-perfil" class="page-section active space-y-6">
+        <!-- ================= SECCIÓN 1: PERFIL & DATOS ================= -->
+        <section id="sec-perfil" class="page-section active space-y-8">
             
-            <!-- TARJETA DE PRESENTACIÓN -->
-            <div class="bg-[#140e21] rounded-3xl p-6 sm:p-8 glow-border transition-all duration-300 relative overflow-hidden">
-                <div class="absolute -right-20 -top-20 w-64 h-64 bg-purple-700/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8 relative z-10">
-                    <!-- FOTO DE PERFIL -->
-                    <div class="relative">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl blur opacity-70"></div>
-                        <img src="one.jpg" alt="Franklin Sebastián Carrión Astudillo" class="relative w-36 h-36 sm:w-44 sm:h-44 object-cover rounded-2xl border-2 border-purple-500/30 shadow-xl bg-purple-950" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400';">
-                    </div>
-                    <!-- INFO PRINCIPAL -->
-                    <div class="text-center md:text-left space-y-3">
-                        <span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-semibold bg-purple-950 text-purple-300 border border-purple-800/50 shadow-inner">
-                            HOJA DE VIDA DIGITAL
-                        </span>
-                        <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-                            Franklin Sebastián Carrión Astudillo
-                        </h1>
-                        <p class="text-purple-300/90 text-sm sm:text-base font-medium">
-                            Estudiante de Administración de Infraestructura y Plataformas Tecnológicas
-                        </p>
-                    </div>
+            <!-- HERO BANNER SIN FOTO -->
+            <div class="custom-card rounded-2xl p-8 sm:p-12 relative overflow-hidden flex flex-col justify-center min-h-[220px]">
+                <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-purple-900/20 to-transparent pointer-events-none"></div>
+                <div class="space-y-3 relative z-10 max-w-3xl">
+                    <span class="px-3 py-1 rounded-md text-[10px] font-mono tracking-wider bg-purple-950 text-purple-300 border border-purple-800/50 uppercase">
+                        Hoja de Vida Digital // Infraestructura y Plataformas Tecnológicas
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                        Franklin Sebastián Carrión Astudillo
+                    </h2>
+                    <p class="text-purple-300/80 text-sm sm:text-base leading-relaxed">
+                        Estudiante universitario enfocado en el despliegue de servidores, administración de redes, bases de datos y soluciones tecnológicas robustas.
+                    </p>
                 </div>
             </div>
 
-            <!-- GRID DE DATOS Y ACADEMICO -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- DISTRIBUCIÓN EN 3 COLUMNAS: DATOS, ACADÉMICO, IDIOMA -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 
-                <!-- DATOS PERSONALES -->
-                <div class="md:col-span-2 bg-[#140e21] rounded-3xl p-6 sm:p-8 glow-border space-y-6">
-                    <h2 class="text-lg font-bold text-white flex items-center space-x-3 border-b border-purple-950 pb-4">
-                        <i class="fa-solid fa-address-card text-purple-400"></i>
-                        <span>Datos Personales</span>
-                    </h2>
+                <!-- DATOS DE CONTACTO (2 Columnas en lg) -->
+                <div class="lg:col-span-2 custom-card rounded-2xl p-6 sm:p-8 space-y-6 flex flex-col justify-between">
+                    <h3 class="text-base font-bold text-white flex items-center space-x-2.5 border-b border-purple-950 pb-4">
+                        <i class="fa-solid fa-address-book text-purple-400"></i>
+                        <span>Información de Contacto y Ubicación</span>
+                    </h3>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm">
-                        <div class="space-y-1">
-                            <span class="text-purple-400/80 text-xs font-semibold flex items-center space-x-1.5">
-                                <i class="fa-solid fa-id-card"></i><span>CÉDULA DE IDENTIDAD</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm py-2">
+                        <div class="space-y-1 bg-[#120c1f]/60 p-4 rounded-xl border border-purple-950">
+                            <span class="text-purple-400 text-xs font-mono uppercase flex items-center space-x-2">
+                                <i class="fa-solid fa-id-card"></i><span>Cédula</span>
                             </span>
-                            <p class="text-white font-medium pl-5">0150321735</p>
+                            <p class="text-white font-semibold text-base">0150321735</p>
                         </div>
 
-                        <div class="space-y-1">
-                            <span class="text-purple-400/80 text-xs font-semibold flex items-center space-x-1.5">
-                                <i class="fa-solid fa-location-dot"></i><span>UBICACIÓN Y DIRECCIÓN</span>
+                        <div class="space-y-1 bg-[#120c1f]/60 p-4 rounded-xl border border-purple-950">
+                            <span class="text-purple-400 text-xs font-mono uppercase flex items-center space-x-2">
+                                <i class="fa-solid fa-location-dot"></i><span>Ubicación</span>
                             </span>
-                            <p class="text-white font-medium pl-5">Gabriela Mistral y Ciro Alegre, Cuenca</p>
+                            <p class="text-white font-semibold text-sm">Gabriela Mistral y Ciro Alegre, Cuenca</p>
                         </div>
 
-                        <div class="space-y-1">
-                            <span class="text-purple-400/80 text-xs font-semibold flex items-center space-x-1.5">
-                                <i class="fa-solid fa-phone"></i><span>TELÉFONO / WHATSAPP</span>
+                        <div class="space-y-1 bg-[#120c1f]/60 p-4 rounded-xl border border-purple-950">
+                            <span class="text-purple-400 text-xs font-mono uppercase flex items-center space-x-2">
+                                <i class="fa-solid fa-phone"></i><span>Teléfono / WhatsApp</span>
                             </span>
-                            <p class="text-white font-medium pl-5">+593 958892429</p>
+                            <p class="text-white font-semibold text-base">+593 958892429</p>
                         </div>
 
-                        <div class="space-y-1">
-                            <span class="text-purple-400/80 text-xs font-semibold flex items-center space-x-1.5">
-                                <i class="fa-solid fa-envelope"></i><span>CORREO ELECTRÓNICO</span>
+                        <div class="space-y-1 bg-[#120c1f]/60 p-4 rounded-xl border border-purple-950">
+                            <span class="text-purple-400 text-xs font-mono uppercase flex items-center space-x-2">
+                                <i class="fa-solid fa-envelope"></i><span>Correo Electrónico</span>
                             </span>
-                            <p class="text-white font-medium pl-5 break-all">Ayzaxbr@gmail.com</p>
+                            <p class="text-white font-semibold text-sm break-all">Ayzaxbr@gmail.com</p>
                         </div>
+                    </div>
+
+                    <!-- CLOUD DRIVE LINK -->
+                    <div class="pt-2">
+                        <a href="https://drive.google.com/drive/folders/17aTlYVqIvaBZ44Hdsue1lldSFElBCkL4?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-5 rounded-xl bg-purple-700 hover:bg-purple-600 text-white font-bold text-xs sm:text-sm transition-all shadow-lg shadow-purple-950 flex items-center justify-center space-x-3 border border-purple-500/30">
+                            <i class="fa-brands fa-google-drive text-lg"></i>
+                            <span>Acceder a la Documentación Oficial en Cloud Drive</span>
+                        </a>
                     </div>
                 </div>
 
-                <!-- FORMACIÓN ACADÉMICA & IDIOMA -->
-                <div class="space-y-6">
+                <!-- COLUMNA DERECHA: ACADEMICO + IDIOMA -->
+                <div class="space-y-6 flex flex-col">
                     <!-- ACADEMIA -->
-                    <div class="bg-[#140e21] rounded-3xl p-6 glow-border space-y-4">
-                        <h2 class="text-base font-bold text-white flex items-center space-x-2.5 border-b border-purple-950 pb-3">
+                    <div class="custom-card rounded-2xl p-6 space-y-4 flex-grow">
+                        <h3 class="text-base font-bold text-white flex items-center space-x-2.5 border-b border-purple-950 pb-3">
                             <i class="fa-solid fa-graduation-cap text-purple-400"></i>
                             <span>Formación Académica</span>
-                        </h2>
-                        <div class="space-y-3 text-sm">
-                            <div class="border-l-2 border-purple-500 pl-3 py-1">
+                        </h3>
+                        <div class="space-y-4 text-sm pt-2">
+                            <div class="relative pl-4 border-l-2 border-purple-500">
                                 <p class="font-bold text-white leading-snug">Tecnología Superior en Administración de Infraestructura y Plataformas TI</p>
-                                <span class="text-xs text-purple-400 font-medium">Universidad de Cuenca / IT del Azuay</span>
+                                <span class="text-xs text-purple-400 font-mono">Universidad de Cuenca / IT del Azuay</span>
                             </div>
-                            <div class="border-l-2 border-purple-900/60 pl-3 py-1">
+                            <div class="relative pl-4 border-l-2 border-purple-900">
                                 <p class="font-bold text-white leading-snug">Bachiller en Ciencias</p>
-                                <span class="text-xs text-purple-400/70 font-medium">Ciudad de Cuenca</span>
+                                <span class="text-xs text-purple-400/70 font-mono">Ciudad de Cuenca</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- IDIOMA -->
-                    <div class="bg-[#140e21] rounded-3xl p-6 glow-border space-y-3">
-                        <h2 class="text-base font-bold text-white flex items-center space-x-2.5 border-b border-purple-950 pb-3">
-                            <i class="fa-solid fa-language text-purple-400"></i>
-                            <span>Dominio de Idioma</span>
-                        </h2>
+                    <div class="custom-card rounded-2xl p-6 space-y-3">
+                        <h3 class="text-base font-bold text-white flex items-center space-x-2.5 border-b border-purple-950 pb-3">
+                            <i class="fa-solid fa-globe text-purple-400"></i>
+                            <span>Idioma</span>
+                        </h3>
                         <div class="flex items-center justify-between pt-1">
-                            <span class="text-white font-semibold text-sm">Inglés</span>
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-950 text-purple-300 border border-purple-800/40">
+                            <span class="text-white font-medium text-sm">Inglés</span>
+                            <span class="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-purple-950 text-purple-300 border border-purple-800">
                                 Nivel A2
                             </span>
                         </div>
@@ -175,73 +175,63 @@
 
             </div>
 
-            <!-- ENLACE DOCUMENTACIÓN CLOUD -->
-            <div class="bg-gradient-to-r from-[#181128] to-[#120c1f] rounded-3xl p-6 sm:p-8 glow-border flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div class="space-y-1 text-center sm:text-left">
-                    <h3 class="text-lg font-bold text-white flex items-center justify-center sm:justify-start space-x-2">
-                        <i class="fa-solid fa-cloud text-purple-400"></i>
-                        <span>Documentación Oficial en Cloud Drive</span>
-                    </h3>
-                    <p class="text-sm text-purple-300/80">Visualiza mi expediente académico, respaldos y certificados en Google Drive.</p>
-                </div>
-                <a href="https://drive.google.com/drive/folders/17aTlYVqIvaBZ44Hdsue1lldSFElBCkL4?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm transition-all duration-300 shadow-lg shadow-purple-900/50 flex items-center space-x-2 shrink-0 border border-purple-400/30">
-                    <i class="fa-solid fa-external-link-alt"></i>
-                    <span>Abrir en Google Drive</span>
-                </a>
-            </div>
-
         </section>
 
-        <!-- ================= SECCIÓN 2: EXPERIENCIA ================= -->
+        <!-- ================= SECCIÓN 2: EXPERIENCIA Y PROYECTOS ================= -->
         <section id="sec-experiencia" class="page-section space-y-6">
             
-            <div class="bg-[#140e21] rounded-3xl p-6 sm:p-8 glow-border space-y-8">
+            <div class="custom-card rounded-2xl p-8 space-y-8">
                 <div>
-                    <h2 class="text-xl font-bold text-white flex items-center space-x-3 border-b border-purple-950 pb-4">
-                        <i class="fa-solid fa-server text-purple-400"></i>
-                        <span>Proyectos y Experiencia Práctica Universitaria</span>
-                    </h2>
-                    <p class="text-sm text-purple-300/80 mt-2">Implementación y despliegue de infraestructura tecnológica, redes y soluciones de software orientadas a entornos productivos.</p>
+                    <span class="text-purple-400 text-xs font-mono uppercase tracking-widest">Ámbito Técnico</span>
+                    <h2 class="text-2xl font-bold text-white mt-1">Trayectoria de Proyectos y Prácticas Universitarias</h2>
+                    <p class="text-sm text-purple-300/70 mt-1">Implementación de arquitecturas de red, sistemas operativos de servidor y bases de datos aplicadas.</p>
                 </div>
 
-                <div class="space-y-8 relative before:absolute before:inset-0 before:left-4 before:w-0.5 before:bg-purple-950">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     
-                    <!-- PROYECTO 1 -->
-                    <div class="relative pl-10 space-y-2">
-                        <div class="absolute left-2.5 -translate-x-1/2 w-3 h-3 rounded-full bg-purple-500 ring-4 ring-[#140e21]"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                            <h3 class="text-lg font-bold text-white">Administración de Servidores Linux & Windows Server</h3>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-950 text-purple-300 border border-purple-800/40 w-fit">Académico / Práctico</span>
+                    <!-- TARJETA PROYECTO 1 -->
+                    <div class="bg-[#120c1f] p-6 rounded-2xl border border-purple-950 space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded text-[10px] font-mono bg-purple-950 text-purple-300 border border-purple-800">Servidores & Redes</span>
+                                <i class="fa-solid fa-server text-purple-400"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Despliegue de Servidores Linux & Windows Server</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                Configuración y puesta en marcha de servidores bajo entornos Linux y Windows Server. Establecimiento de servicios de correo electrónico corporativo, gestión de dominios, conectividad integral y direccionamiento de equipos interconectados en red local.
+                            </p>
                         </div>
-                        <p class="text-sm text-purple-400 font-medium">Infraestructura y Servicios de Red</p>
-                        <p class="text-sm text-gray-300 leading-relaxed pt-1">
-                            Despliegue y configuración integral de servidores en entornos Linux y Windows Server. Configuración avanzada de servicios esenciales como servidores de correo electrónico corporativo, control de dominios, directivas de seguridad y conectividad de terminales en red local bajo estrictos estándares de fiabilidad.
-                        </p>
+                        <div class="pt-4 border-t border-purple-950/60 text-xs text-purple-400 font-mono">
+                            Ambientes empresariales simulados y físicos
+                        </div>
                     </div>
 
-                    <!-- PROYECTO 2 -->
-                    <div class="relative pl-10 space-y-2">
-                        <div class="absolute left-2.5 -translate-x-1/2 w-3 h-3 rounded-full bg-purple-500 ring-4 ring-[#140e21]"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                            <h3 class="text-lg font-bold text-white">Bases de Datos y Aplicación de Gestión</h3>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-950 text-purple-300 border border-purple-800/40 w-fit">Desarrollo e Integración</span>
+                    <!-- TARJETA PROYECTO 2 -->
+                    <div class="bg-[#120c1f] p-6 rounded-2xl border border-purple-950 space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded text-[10px] font-mono bg-purple-950 text-purple-300 border border-purple-800">Desarrollo & Datos</span>
+                                <i class="fa-solid fa-database text-purple-400"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Bases de Datos y Aplicación de Gestión Comercial</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">
+                                Creación de bases de datos relacionales robustas combinadas con el desarrollo de una aplicación orientada a negocios. Sistema automatizado para el registro seguro, control y consulta de ingresos de personas para optimizar la operativa comercial.
+                            </p>
                         </div>
-                        <p class="text-sm text-purple-400 font-medium">Sistemas de Información y Control</p>
-                        <p class="text-sm text-gray-300 leading-relaxed pt-1">
-                            Diseño y estructuración de bases de datos relacionales integradas con una aplicación programada a la medida para entornos comerciales reales. Automatización del flujo de ingreso, consulta y almacenamiento seguro de registros de personas y control operativo para pequeños negocios.
-                        </p>
+                        <div class="pt-4 border-t border-purple-950/60 text-xs text-purple-400 font-mono">
+                            Integración software y persistencia de datos
+                        </div>
                     </div>
 
-                    <!-- PROYECTO 3 -->
-                    <div class="relative pl-10 space-y-2">
-                        <div class="absolute left-2.5 -translate-x-1/2 w-3 h-3 rounded-full bg-purple-500 ring-4 ring-[#140e21]"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                            <h3 class="text-lg font-bold text-white">Topologías de Red y Enrutamiento (Cisco Networking Academy)</h3>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-950 text-purple-300 border border-purple-800/40 w-fit">Redes y Conectividad</span>
+                    <!-- TARJETA PROYECTO 3 -->
+                    <div class="bg-[#120c1f] p-6 rounded-2xl border border-purple-950 md:col-span-2 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded text-[10px] font-mono bg-purple-950 text-purple-300 border border-purple-800">Redes Avanzadas</span>
+                            <i class="fa-solid fa-route text-purple-400"></i>
                         </div>
-                        <p class="text-sm text-purple-400 font-medium">Cisco Packet Tracer</p>
-                        <p class="text-sm text-gray-300 leading-relaxed pt-1">
-                            Simulación, diseño y resolución de problemas de conectividad en topologías de red complejas utilizando protocolos de enrutamiento estático y dinámico, asegurando la transmisión eficiente y segura de datos entre subredes.
+                        <h3 class="text-lg font-bold text-white">Topologías de Red y Enrutamiento (Cisco Networking Academy)</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Diseño, simulación y solución de incidencias en topologías de red complejas mediante Cisco Packet Tracer. Implementación de protocolos de enrutamiento estático y dinámico para garantizar la transmisión óptima y segura de flujos de datos.
                         </p>
                     </div>
 
@@ -253,41 +243,39 @@
         <!-- ================= SECCIÓN 3: CAPACITACIONES ================= -->
         <section id="sec-capacitaciones" class="page-section space-y-6">
             
-            <div class="bg-[#140e21] rounded-3xl p-6 sm:p-8 glow-border space-y-6">
+            <div class="custom-card rounded-2xl p-8 space-y-8">
                 <div>
-                    <h2 class="text-xl font-bold text-white flex items-center space-x-3 border-b border-purple-950 pb-4">
-                        <i class="fa-solid fa-certificate text-purple-400"></i>
-                        <span>Presentación de Capacitaciones y Certificados</span>
-                    </h2>
-                    <p class="text-sm text-purple-300/80 mt-2">Certificaciones oficiales acreditadas y formación complementaria en tecnologías de información.</p>
+                    <span class="text-purple-400 text-xs font-mono uppercase tracking-widest">Certificaciones Oficiales</span>
+                    <h2 class="text-2xl font-bold text-white mt-1">Presentación de Capacitaciones</h2>
+                    <p class="text-sm text-purple-300/70 mt-1">Validación de conocimientos técnicos a través de plataformas interactivas y credenciales verificables.</p>
                 </div>
 
-                <!-- INCORPORACIÓN DE CANVA EMBED -->
-                <div class="bg-[#181128] p-4 rounded-2xl border border-purple-900/50 space-y-4">
+                <!-- CANVA EMBED CONTENEDOR -->
+                <div class="bg-[#120c1f] p-6 rounded-2xl border border-purple-950 space-y-4">
                     <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 0; margin-bottom: 0; overflow: hidden; border-radius: 12px; will-change: transform;">
                         <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
                             src="https://www.canva.com/design/DAHWlMLh7IM/bNbt82Uc3_ZzJqWzV4hPvA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
                         </iframe>
                     </div>
-                    <div class="text-center text-xs text-purple-300/70 pt-1">
-                        <a href="https://www.canva.com/design/DAHWlMLh7IM/bNbt82Uc3_ZzJqWzV4hPvA/view?utm_content=DAHWlMLh7IM&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 underline transition-colors">
+                    <div class="text-center text-xs text-purple-300/70 pt-2 font-mono">
+                        <a href="https://www.canva.com/design/DAHWlMLh7IM/bNbt82Uc3_ZzJqWzV4hPvA/view?utm_content=DAHWlMLh7IM&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener noreferrer" class="hover:text-white underline transition-colors">
                             Este certificado se otorga a FRANKLIN SEBASTIAN CARRION ASTUDILLO
                         </a> by FRANKLIN SEBASTIAN CARRION ASTUDILLO
                     </div>
                 </div>
 
-                <!-- CREDLY BADGES -->
-                <div class="bg-gradient-to-r from-[#181128] to-[#120c1f] rounded-2xl p-6 glow-border flex flex-col sm:flex-row items-center justify-between gap-6">
+                <!-- CREDLY BADGES BANNER -->
+                <div class="bg-gradient-to-r from-purple-950/40 to-indigo-950/40 p-6 rounded-2xl border border-purple-900/50 flex flex-col sm:flex-row items-center justify-between gap-6">
                     <div class="space-y-1 text-center sm:text-left">
                         <h3 class="text-base font-bold text-white flex items-center justify-center sm:justify-start space-x-2">
                             <i class="fa-solid fa-shield-halved text-purple-400"></i>
                             <span>Credenciales Verificadas en Credly</span>
                         </h3>
-                        <p class="text-xs sm:text-sm text-purple-300/80">Revisa mis insignias y acreditaciones oficiales emitidas por Cisco Networking Academy.</p>
+                        <p class="text-xs text-purple-300/80">Insignias oficiales emitidas por Cisco Networking Academy.</p>
                     </div>
-                    <a href="https://www.credly.com/users/franklin-sebastian-carrion-astudillo" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-purple-900/50 flex items-center space-x-2 shrink-0 border border-purple-400/30">
+                    <a href="https://www.credly.com/users/franklin-sebastian-carrion-astudillo" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs transition-all shadow-lg flex items-center space-x-2 shrink-0 border border-purple-400/30">
                         <i class="fa-solid fa-award"></i>
-                        <span>Ver perfil oficial en Credly</span>
+                        <span>Ver Perfil Credly</span>
                     </a>
                 </div>
 
@@ -298,29 +286,25 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="w-full border-t border-purple-950/60 bg-[#120c1f] py-6 text-center text-xs text-purple-400/60 mt-12">
-        <p>&copy; 2026 Franklin Sebastián Carrión Astudillo. Todos los derechos reservados.</p>
+    <footer class="w-full border-t border-purple-950 bg-[#120c1f] py-6 text-center text-xs font-mono text-purple-400/60 mt-12">
+        <p>&copy; 2026 Franklin Sebastián Carrión Astudillo. GitHub Pages CV.</p>
     </footer>
 
-    <!-- SCRIPT DE PESTAÑAS (INTERACTIVIDAD) -->
+    <!-- SCRIPT DE NAVEGACIÓN POR PESTAÑAS -->
     <script>
         function switchTab(tabId) {
-            // Ocultar todas las secciones
             document.querySelectorAll('.page-section').forEach(sec => {
                 sec.classList.remove('active');
             });
 
-            // Desactivar todos los botones
             document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.className = "nav-btn px-3 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center space-x-2 text-purple-300 hover:text-white hover:bg-purple-950/50";
+                btn.className = "nav-btn px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 flex items-center space-x-2 text-purple-300 hover:text-white hover:bg-purple-950/50";
             });
 
-            // Mostrar la sección seleccionada
             document.getElementById('sec-' + tabId).classList.add('active');
 
-            // Activar el botón correspondiente
             const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.className = "nav-btn px-3 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center space-x-2 bg-purple-700 text-white shadow-md shadow-purple-900/40";
+            activeBtn.className = "nav-btn px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 flex items-center space-x-2 bg-purple-600 text-white shadow";
         }
     </script>
 </body>
